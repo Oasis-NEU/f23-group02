@@ -4,10 +4,10 @@ import Navbar from './Navigation/Navbar';
 import { supabase } from './supabase';
 
 function App() {
-	const [groceries, setGroceries] = useState<any[]>([]);
+	const [groceries, setGroceries] = useState<any>({});
 
 	async function fetchGroceries() {
-		const { data, error } = await supabase.from('Groceries').select('*');
+		const { data, error } = await supabase.from('dreams').select('*');
 		if (data) {
 			setGroceries(data);
 		} else {
@@ -27,7 +27,9 @@ function App() {
 
 			<h1>Grocery List</h1>
 
-			<></>
+			<pre>
+				{JSON.stringify(groceries, null, 2)}
+			</pre>
 
 			{/* <header className="App-header">
 				<img src={logo} className="App-logo" alt="logo" />
