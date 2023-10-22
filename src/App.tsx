@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import './App.css';
 import Navbar from './Navigation/Navbar';
 import { supabase } from './supabase';
+import DreamTable from "./DreamTable"
 
 function App() {
 	const [groceries, setDreams] = useState<any>({});
@@ -13,6 +14,7 @@ function App() {
 		} else {
 			console.log(error);
 		}
+		console.log((groceries))
 	}
 
 	async function addToDreams(){
@@ -39,13 +41,10 @@ function App() {
 			<br/>
 			<br/>
 			<button onClick={addToDreams}>submit</button>
-
-			<h1>List of dreams:</h1>
-
-			<pre>
-				{JSON.stringify(groceries, null, 2)}
-			</pre>
-
+			<h1>Dream List:</h1>
+			<DreamTable
+			groceries={groceries}
+			/>
 			{/* <header className="App-header">
 				<img src={logo} className="App-logo" alt="logo" />
 				<p>
