@@ -6,12 +6,12 @@ const OurNavbar = () => {
 	return (
 		<Navbar expand="lg">
 			<Container className="bg-body-tertiary">
-				<Navbar.Brand href="#home">Dream Tracker</Navbar.Brand>
+				<Navbar.Brand href="#home" className="navbarItem navbarBox">Dream Tracker</Navbar.Brand>
 				<Navbar.Collapse id="basic-navbar-nav">
 					<Nav className="me-auto">
-						<Nav.Link href="#home">Home</Nav.Link>
-						<Nav.Link href="#music">Music</Nav.Link>
-						<Nav.Link href="#connect">Connect</Nav.Link>
+						<Nav.Link href="#home" className="navbarItem navbarBox">Home</Nav.Link>
+						<Nav.Link href="#music" className="navbarItem navbarBox">Music</Nav.Link>
+						<Nav.Link href="#connect" className="navbarItem navbarBox">Connect</Nav.Link>
 					</Nav>
 				</Navbar.Collapse>
 			</Container>
