@@ -4,13 +4,22 @@ import Navbar from './Navigation/Navbar';
 import { supabase } from './supabase';
 
 function App() {
-	const [groceries, setGroceries] = useState<any>({});
+	const [groceries, setDreams] = useState<any>({});
 
-	async function fetchGroceries() {
-		const { data, error } = await supabase.from('dreams').select('*');
+	async function fetchDreams() {
+		const {data, error} = await supabase.from('dreams').select('*');
 		if (data) {
-			setGroceries(data);
+			setDreams(data);
 		} else {
+			console.log(error);
+		}
+	}
+
+	async function addToDreams(){
+		let button = document.getElementById("dreamText") as HTMLInputElement
+		console.log(button?.value)
+		const {error} = await supabase.from('dreams').insert({text:button?.value});
+		if(error){
 			console.log(error);
 		}
 	}
@@ -18,14 +27,20 @@ function App() {
 	useEffect(() => {
 		// our fetch function
 
-		fetchGroceries();
+		fetchDreams();
 	}, []); // on page load
 
 	return (
 		<div className="App">
 			<Navbar />
+			<h1>Enter your dream:</h1>
+			<textarea id="dreamText"/>
+			<br/>
+			<br/>
+			<br/>
+			<button onClick={addToDreams}>submit</button>
 
-			<h1>Grocery List</h1>
+			<h1>List of dreams:</h1>
 
 			<pre>
 				{JSON.stringify(groceries, null, 2)}
