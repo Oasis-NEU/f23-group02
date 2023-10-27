@@ -1,0 +1,8 @@
+printWidth: 120
+trailingComma: es5
+singleQuote: true
+useTabs: true
+singleAttributePerLine: false
+proseWrap: preserve
+bracketSameLine: false
+semi: true
