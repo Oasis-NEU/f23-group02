@@ -7,7 +7,7 @@ const Home = () => (
 		<h1 id="BigName">Dream Tracker™</h1>
 		<h3>A simple tool for logging, analyzing, and sharing your dreams.</h3>
 		<p id="weTotallyStealData">We don't steal your data®</p>
-		<img src="./sleeping.png" id="deepSleeper" alt="" />
+		<img src="./sleeping-man.png" id="deepSleeper" alt="" />
 		<h1 id="featureHeader1">Features</h1>
 		<h3 className="feature1">Current</h3>
 		<h3 className="feature1">Future</h3>
