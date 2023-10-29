@@ -1,3 +1,4 @@
+import { NavbarBrand } from 'react-bootstrap';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
@@ -5,16 +6,17 @@ import { Link, NavLink } from 'react-router-dom';
 
 import './Header.css';
 
-import { NavbarBrand } from 'react-bootstrap';
-import Auth from '../pages/Auth';
-import Dream from '../pages/Dreams';
+import Auth from '../pages/Auth/Auth';
+import Register from '../pages/Auth/Register';
+import Dreams from '../pages/Dreams';
 import Home from '../pages/Home';
 
 export const routes = [
 	{ path: '/', element: <Home /> },
 	{ path: '/home', element: <Home /> },
-	{ path: '/dreams', element: <Dream /> },
+	{ path: '/dreams', element: <Dreams /> },
 	{ path: '/auth', element: <Auth /> },
+	{ path: '/auth/register', element: <Register /> },
 ];
 
 // as={Link} ensures that react router is used
