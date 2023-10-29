@@ -48,7 +48,7 @@ const Dreams = () => {
 			<Navbar />
 
 			<h2>Enter your dream:</h2>
-			<textarea id="dreamText" rows={7} cols={75} placeholder="Last night, I dreamt..." />
+			<textarea id="dreamText" placeholder="Last night, I dreamt..." />
 			<br />
 			<br />
 			<button onClick={addToDreams} id="submitButton">

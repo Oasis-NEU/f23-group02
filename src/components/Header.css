@@ -12,5 +12,11 @@
 }
 
 #appName {
-	color: aqua;
+	color: #4da7d9;
+}
+
+#zzz {
+	margin-left:5px;
+	margin-bottom:5px;
+	max-width: 35px;
 }
