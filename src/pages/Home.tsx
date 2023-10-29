@@ -4,14 +4,10 @@ import './Home.css';
 const Home = () => (
 	<div className="Home">
 		<Navbar />
-		<div className ="sec1">
-			<h1 id="BigName">Dream Tracker™</h1>
-			<h3>A simple tool for logging, analyzing, and sharing your dreams.</h3>
-			<p id="weTotallyStealData">We don't steal your data®</p>
-		</div>
-		<div>
-			<img src="./sleeping.png" id="deepSleeper"></img>
-		</div>
+		<h1 id="BigName">Dream Tracker™</h1>
+		<h3>A simple tool for logging, analyzing, and sharing your dreams.</h3>
+		<p id="weTotallyStealData">We don't steal your data®</p>
+		<img src="./sleeping.png" id="deepSleeper" alt="" />
 		<h1 id="featureHeader1">Features</h1>
 		<h3 className="feature1">Current</h3>
 		<h3 className="feature1">Future</h3>
@@ -21,7 +17,9 @@ const Home = () => (
 			<li>Ability to log your dreams and store your thoughts about them in a super-secure database</li>
 			<li>Automaticly create timestamps for every dream entry</li>
 			<li>Right to purge your dreams from the database at the click of a button</li>
-			<li>Easy access to the dream database from any device*<div id ="small">*not actually any device</div></li>
+			<li>
+				Easy access to the dream database from any device*<div id="small">*not actually any device</div>
+			</li>
 		</ul>
 		<ul className="feature3">
 			<li>Language analysis on any dream description to match its mood to a song</li>
