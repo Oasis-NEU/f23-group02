@@ -27,7 +27,7 @@ function tableRow(dreams: Record<string, string>[], removeFromDatabase:((str:str
 					</label> */}
 					</th>
 					<th>Dream Description</th>
-					<th>Remove?</th>
+					<th >X?</th>
 				</tr>
 				{items}
 			</table>
