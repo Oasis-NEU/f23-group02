@@ -2,9 +2,11 @@ table {
 	font-family: arial, sans-serif;
 	border-collapse: collapse;
 	width: 100%;
+	padding: 2em !important;
 }
 
-td, th {
+td,
+th {
 	border: 1px solid #dddddd;
 	text-align: left;
 	padding: 5px;
@@ -21,10 +23,14 @@ th {
 	background-color: #212121;
 }
 
+.dreamDeletor {
+	background-color: slategrey;
+}
+
 .dreamDeletor:hover {
 	background-color: #d70c0c; /* change to your desired color */
 	color: #000000; /* change to your desired color */
-  }
+}
 
 button {
 	border-radius: 5px;

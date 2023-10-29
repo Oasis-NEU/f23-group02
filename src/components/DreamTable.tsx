@@ -1,30 +1,30 @@
 import './DreamTable.css';
 
-
-
-
-
-function tableRow(dreams: Record<string, string>[], removeFromDatabase:((str:string)=>undefined)) {
+function tableRow(dreams: Record<string, string>[], removeFromDatabase: (str: string) => undefined) {
 	try {
 		const items = dreams.map((dream) => (
-				<tr>
-					<td>{timestampNicer(dream.created_at)}</td>
-					<td>{dream.text}</td>
-					<td>
-						<button onClick={() => removeFromDatabase(dream.id)} className="dreamDeletor">X</button>
-					</td>
-				</tr>
+			<tr>
+				<td>{timestampNicer(dream.created_at)}</td>
+				<td>{dream.text}</td>
+				<td>
+					<button onClick={() => removeFromDatabase(dream.id)} className="dreamDeletor">
+						X
+					</button>
+				</td>
+			</tr>
 		));
 		return (
 			<table>
 				<tr>
-					<th>Timestamp
-					{/* <label>
-						Start
-						<input type="date" defaultValue="2000-02-29" id="start"></input><p></p>
-						End
-						<input type="date" defaultValue="2023-10-31"></input>
-					</label> */}
+					<th>
+						Timestamp
+						{/* <label>
+								Start
+								<input type="date" defaultValue="2000-02-29" id="start"></input>
+								<p></p>
+								End
+								<input type="date" defaultValue="2023-10-31"></input>
+							</label> */}
 					</th>
 					<th>Dream Description</th>
 					<th>Remove?</th>
@@ -56,7 +56,7 @@ function timestampNicer(timestamp: string) {
 	return toReturn;
 }
 
-function DreamTable({ groceries, removeFromDatabase }: { groceries: any, removeFromDatabase:any }) {
+function DreamTable({ groceries, removeFromDatabase }: { groceries: any; removeFromDatabase: any }) {
 	return tableRow(groceries, removeFromDatabase);
 }
 

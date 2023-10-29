@@ -29,16 +29,16 @@ const Header = () => (
 			</NavbarBrand>
 			<Navbar.Collapse id="basic-navbar-nav">
 				<Nav className="me-auto" defaultActiveKey="/">
-					<Nav.Link as={NavLink} to="/" className="pageLink">
+					<Nav.Link as={NavLink} to="/">
 						Home
 					</Nav.Link>
-					<Nav.Link as={NavLink} to="/dreams" className="pageLink">
+					<Nav.Link as={NavLink} to="/dreams">
 						Dreams
 					</Nav.Link>
-					<Nav.Link as={NavLink} to="/music" className="pageLink" disabled>
+					<Nav.Link as={NavLink} to="/music" disabled>
 						Music
 					</Nav.Link>
-					<Nav.Link as={NavLink} to="/connect" className="pageLink" disabled>
+					<Nav.Link as={NavLink} to="/connect" disabled>
 						Connect
 					</Nav.Link>
 				</Nav>
