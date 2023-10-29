@@ -1,20 +1,22 @@
 import './DreamTable.css';
 
-function tableRow(dreams: Record<string, string>[]) {
+function tableRow(dreams: Record<string, string>[], removeFromDatabase:((str:string)=>undefined)) {
 	try {
 		const items = dreams.map((dream) => (
 			<tr>
-				<th>{dream.id}</th>
 				<th>{timestampNicer(dream.created_at)}</th>
 				<th>{dream.text}</th>
+				<th>
+					<button onClick={() => removeFromDatabase(dream.id)}>X</button>
+				</th>
 			</tr>
 		));
 		return (
 			<table>
 				<tr>
-					<th>id</th>
 					<th>timestamp</th>
 					<th>text</th>
+					<th>delete?</th>
 				</tr>
 				{items}
 			</table>
@@ -43,8 +45,8 @@ function timestampNicer(timestamp: string) {
 	return toReturn;
 }
 
-function DreamTable({ groceries }: { groceries: any }) {
-	return tableRow(groceries);
+function DreamTable({ groceries, removeFromDatabase }: { groceries: any, removeFromDatabase:any }) {
+	return tableRow(groceries, removeFromDatabase);
 }
 
 export default DreamTable;

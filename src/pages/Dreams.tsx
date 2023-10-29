@@ -12,8 +12,17 @@ const Dreams = () => {
 	async function addToDreams() {
 		let button = document.getElementById('dreamText') as HTMLInputElement;
 		console.log(button?.value);
-		const { error } = await supabase.from('dreams').insert({ text: button?.value });
-		if (error) {
+		if(button?.value != ""){
+			const { error } = await supabase.from('dreams').insert({ text: button?.value });
+			if (error) {
+				console.log(error);
+			}
+		}
+	}
+
+	async function removeFromDreams(id:string){
+		const{error} = await supabase.from('dreams').delete().eq("id",id);
+		if(error){
 			console.log(error);
 		}
 	}
@@ -41,10 +50,13 @@ const Dreams = () => {
 			<textarea id="dreamText" />
 			<br />
 			<br />
-			<br />
 			<button onClick={addToDreams}>submit</button>
+			<br />
+			<br />
+			<br />
+			<br />
 			<h1>Dream List:</h1>
-			<DreamTable groceries={groceries} />
+			<DreamTable groceries={groceries} removeFromDatabase={removeFromDreams} />
 		</div>
 	);
 };
