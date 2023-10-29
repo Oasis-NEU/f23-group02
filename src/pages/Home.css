@@ -1,3 +1,51 @@
 .Home {
 	text-align: center;
 }
+
+#BigName {
+	font-size: 100px;
+	font-family: "Baloo 2";
+	font-weight: 600;
+	text-align: center;
+	margin-top: 25px;
+}
+
+#deepSleeper{
+	margin-top: 50px;
+	margin-bottom: 135px;
+}
+
+.feature1, .feature2, .feature3 {
+	text-align: center;
+    display: block;
+    float: left;    
+    width: 50%;
+}
+
+li {
+    width: 80%;
+	text-align: left;
+	margin-left: 15%;
+}
+
+#featureHeader1 {
+	font-size: 50px;
+	margin-bottom: 30px;
+}
+
+.feature1 {
+	font-size:30px;
+	margin-bottom: 0px;
+	height: 25px;
+}
+
+.feature2 {
+	font-size:12px;
+	margin-top: 5px;
+	margin-bottom: 0px;
+	height: 25px;
+}
+
+#small {
+	font-size: 8px;
+}

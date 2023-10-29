@@ -24,21 +24,21 @@ export const routes = [
 const Header = () => (
 	<Navbar className="user-select-none" expand="lg" bg="dark" data-bs-theme="dark">
 		<Container className="bg-body-tertiary">
-			<NavbarBrand as={Link} to="/">
+			<NavbarBrand as={Link} to="/" id="appName">
 				Dream Tracker
 			</NavbarBrand>
 			<Navbar.Collapse id="basic-navbar-nav">
 				<Nav className="me-auto" defaultActiveKey="/">
-					<Nav.Link as={NavLink} to="/">
+					<Nav.Link as={NavLink} to="/" className="pageLink">
 						Home
 					</Nav.Link>
-					<Nav.Link as={NavLink} to="/dreams">
+					<Nav.Link as={NavLink} to="/dreams" className="pageLink">
 						Dreams
 					</Nav.Link>
-					<Nav.Link as={NavLink} to="/music" disabled>
+					<Nav.Link as={NavLink} to="/music" className="pageLink" disabled>
 						Music
 					</Nav.Link>
-					<Nav.Link as={NavLink} to="/connect" disabled>
+					<Nav.Link as={NavLink} to="/connect" className="pageLink" disabled>
 						Connect
 					</Nav.Link>
 				</Nav>

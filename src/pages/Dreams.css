@@ -1,3 +1,7 @@
 .Dreams {
 	text-align: center;
 }
+
+#submitButton:hover {
+	background-color: #7e7e7e; /* change to your desired color */
+}

@@ -1,22 +1,33 @@
 import './DreamTable.css';
 
+
+
+
+
 function tableRow(dreams: Record<string, string>[], removeFromDatabase:((str:string)=>undefined)) {
 	try {
 		const items = dreams.map((dream) => (
-			<tr>
-				<th>{timestampNicer(dream.created_at)}</th>
-				<th>{dream.text}</th>
-				<th>
-					<button onClick={() => removeFromDatabase(dream.id)}>X</button>
-				</th>
-			</tr>
+				<tr>
+					<td>{timestampNicer(dream.created_at)}</td>
+					<td>{dream.text}</td>
+					<td>
+						<button onClick={() => removeFromDatabase(dream.id)} className="dreamDeletor">X</button>
+					</td>
+				</tr>
 		));
 		return (
 			<table>
 				<tr>
-					<th>timestamp</th>
-					<th>text</th>
-					<th>delete?</th>
+					<th>Timestamp
+					{/* <label>
+						Start
+						<input type="date" defaultValue="2000-02-29" id="start"></input><p></p>
+						End
+						<input type="date" defaultValue="2023-10-31"></input>
+					</label> */}
+					</th>
+					<th>Dream Description</th>
+					<th>Remove?</th>
 				</tr>
 				{items}
 			</table>

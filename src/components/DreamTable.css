@@ -4,13 +4,29 @@ table {
 	width: 100%;
 }
 
-td,
-th {
+td, th {
 	border: 1px solid #dddddd;
 	text-align: left;
-	padding: 8px;
+	padding: 5px;
 }
 
 tr:nth-child(even) {
-	background-color: #3a3b3c;
+	background-color: #2e3745;
+}
+tr:nth-child(odd) {
+	background-color: #262e3a;
+}
+
+th {
+	background-color: #212121;
+}
+
+.dreamDeletor:hover {
+	background-color: #d70c0c; /* change to your desired color */
+	color: #000000; /* change to your desired color */
+  }
+
+button {
+	border-radius: 5px;
+	border: none;
 }

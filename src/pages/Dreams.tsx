@@ -5,6 +5,7 @@ import { supabase } from '../supabase';
 
 import DreamTable from '../components/DreamTable';
 import Navbar from '../components/Header';
+import { Placeholder } from 'react-bootstrap';
 
 const Dreams = () => {
 	const [groceries, setDreams] = useState<any>({});
@@ -17,6 +18,7 @@ const Dreams = () => {
 			if (error) {
 				console.log(error);
 			}
+			button.value = ""
 		}
 	}
 
@@ -47,10 +49,10 @@ const Dreams = () => {
 			<Navbar />
 
 			<h1>Enter your dream:</h1>
-			<textarea id="dreamText" />
+			<textarea id="dreamText" rows={7} cols={75} placeholder="Last night, I dreamt..."/>
 			<br />
 			<br />
-			<button onClick={addToDreams}>submit</button>
+			<button onClick={addToDreams} id="submitButton">submit</button>
 			<br />
 			<br />
 			<br />
