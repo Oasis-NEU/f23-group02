@@ -1,0 +1,15 @@
+FOR FLASK APP
+
+Python version: 
+3.12
+
+installs needed:
+flask
+flask_restful
+flask_cors
+
+to run:
+cd into root
+write 'flask run'
+
+if you want to see anything rn, navigate in your web browser to :5000/flask/hello
