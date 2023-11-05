@@ -10,14 +10,16 @@ const Dreams = () => {
 	const [groceries, setDreams] = useState<any>({});
 
 	async function addToDreams() {
-		let button = document.getElementById('dreamText') as HTMLInputElement;
-		console.log(button?.value);
-		if (button?.value !== '') {
-			const { error } = await supabase.from('dreams').insert({ text: button?.value });
+		console.log("i was called!!!!")
+
+		let input = document.getElementById('dreamText') as HTMLInputElement;
+		console.log(input?.value);
+		if (input?.value !== '') {
+			const { error } = await supabase.from('dreams').insert({ text: input?.value });
 			if (error) {
 				console.log(error);
 			}
-			button.value = '';
+			input.value = '';
 		}
 
 		setScuffed(!scuffed);
@@ -33,7 +35,7 @@ const Dreams = () => {
 
 	const [scuffed, setScuffed] = useState<boolean>(false);
 
-	setInterval(() => setScuffed(!scuffed), 1000);
+	//setInterval(() => setScuffed(!scuffed), 1000);
 
 	useEffect(() => {
 		async function fetchDreams() {

@@ -26,7 +26,7 @@ const Header = () => (
 		<Container className="bg-body-tertiary">
 			<NavbarBrand as={Link} to="/" id="appName">
 				Dream Tracker
-				<img src="./zzz.png" id="zzz"></img>
+				<img src="/zzz.png" id="zzz"></img>
 			</NavbarBrand>
 			<Navbar.Collapse id="basic-navbar-nav">
 				<Nav className="me-auto" defaultActiveKey="/">
