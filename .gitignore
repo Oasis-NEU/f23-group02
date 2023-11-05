@@ -2,14 +2,19 @@
 
 # dependencies
 /node_modules
+reactapp/node_modules
 /.pnp
 .pnp.js
+reactapp/.pnp
+reactapp/.pnp.js
 
 # testing
 /coverage
+reactapp/coverage
 
 # production
 /build
+reactapp/build
 
 # misc
 .DS_Store
@@ -18,7 +23,16 @@
 .env.development.local
 .env.test.local
 .env.production.local
+reactapp/.env
+reactapp/.env.local
+reactapp/.env.development.local
+reactapp/.env.test.local
+reactapp/.env.production.local
 
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+reactapp/npm-debug.log*
+reactapp/yarn-debug.log*
+reactapp/yarn-error.log*
