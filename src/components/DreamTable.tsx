@@ -5,7 +5,7 @@ function tableRow(dreams: Record<string, string>[], removeFromDatabase: (str: st
 		const items = dreams.map((dream) => (
 			<tr>
 				<td>{timestampNicer(dream.created_at)}</td>
-				<td>{dream.text}</td>
+				<td className="dreamTableData">{dream.text}</td>
 				<td>
 					<button onClick={() => removeFromDatabase(dream.id)} className="dreamDeletor">
 						X
@@ -27,7 +27,7 @@ function tableRow(dreams: Record<string, string>[], removeFromDatabase: (str: st
 							</label> */}
 					</th>
 					<th>Dream Description</th>
-					<th >X?</th>
+					<th>X?</th>
 				</tr>
 				{items}
 			</table>
@@ -44,16 +44,9 @@ function tableRow(dreams: Record<string, string>[], removeFromDatabase: (str: st
 }
 
 function timestampNicer(timestamp: string) {
-	// console.log('timestamp: ' + timestamp);
+	const date = new Date(timestamp);
 
-	let toReturn = '';
-	const dateList = timestamp.slice(0, 10).split('-');
-	toReturn += dateList[1] + '/' + dateList[2] + '/' + dateList[0] + '   ';
-	let hours = parseInt(timestamp.slice(11, 13));
-	let suffix = hours >= 12 ? ' PM' : ' AM';
-	toReturn += ((hours + 11) % 12) + 1 + timestamp.slice(13, 16) + suffix;
-	toReturn += ' UTC';
-	return toReturn;
+	return date.toLocaleDateString(undefined, { hour: 'numeric', minute: '2-digit' });
 }
 
 function DreamTable({ groceries, removeFromDatabase }: { groceries: any; removeFromDatabase: any }) {

@@ -19,6 +19,8 @@ const Dreams = () => {
 			}
 			button.value = '';
 		}
+
+		setScuffed(!scuffed);
 	}
 
 	async function removeFromDreams(id: string) {
@@ -26,7 +28,12 @@ const Dreams = () => {
 		if (error) {
 			console.log(error);
 		}
+		setScuffed(!scuffed);
 	}
+
+	const [scuffed, setScuffed] = useState<boolean>(false);
+
+	setInterval(() => setScuffed(!scuffed), 1000);
 
 	useEffect(() => {
 		async function fetchDreams() {
@@ -36,12 +43,10 @@ const Dreams = () => {
 			} else {
 				console.log(error);
 			}
-
-			// console.log(groceries);
 		}
 
 		fetchDreams();
-	}, [groceries]); // on page load
+	}, [scuffed]);
 
 	return (
 		<div className="Dreams">
