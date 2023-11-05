@@ -1,0 +1,9 @@
+.register-error {
+	color: red;
+	text-align: left;
+	margin-bottom: 0px;
+}
+
+.auth-form-error input {
+	outline: var(--bs-border-width) solid red;
+}

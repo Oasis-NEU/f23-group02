@@ -5,14 +5,6 @@ import Header from '../../components/Header';
 import AuthCard from '../../components/AuthCard';
 
 const Auth = () => {
-	function webauthn() {
-		navigator.credentials.get({
-			publicKey: {
-				challenge: {} as any,
-			},
-		});
-	}
-
 	return (
 		<>
 			<Header />
