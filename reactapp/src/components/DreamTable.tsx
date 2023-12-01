@@ -1,10 +1,17 @@
 import './DreamTable.css';
+import {Link} from 'react-router-dom';
 
 function tableRow(dreams: Record<string, string>[], removeFromDatabase: (str: string) => undefined) {
 	try {
 		const items = dreams.map((dream) => (
 			<tr>
 				<td>{timestampNicer(dream.created_at)}</td>
+				<td>
+				<Link 
+					to={'/music'}  
+					state={{text:dream.text}}>Get Music
+				</Link>
+				</td>
 				<td className="dreamTableData">{dream.text}</td>
 				<td>
 					<button onClick={() => removeFromDatabase(dream.id)} className="dreamDeletor">
@@ -26,6 +33,7 @@ function tableRow(dreams: Record<string, string>[], removeFromDatabase: (str: st
 								<input type="date" defaultValue="2023-10-31"></input>
 							</label> */}
 					</th>
+					<th>Music?</th>
 					<th>Dream Description</th>
 					<th>X?</th>
 				</tr>

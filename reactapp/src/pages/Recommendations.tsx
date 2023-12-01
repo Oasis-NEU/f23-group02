@@ -1,10 +1,30 @@
 import './Recommendations.css';
 import ReactDOMServer from 'react-dom/server'
+import { useLocation } from "react-router-dom";
 
 import ResponseTable from '../components/MusicResponse';
 import Navbar from '../components/Header';
+import { useEffect } from 'react';
 
 const Recommendations = () => {
+	const {state} = useLocation();
+
+
+	useEffect(() =>{ 
+			console.log("running")
+			if(state != null){
+				let responseField = document.getElementById('dreamText') as HTMLInputElement;
+				if(responseField != null){
+					responseField.value = state['text']
+					getRec();
+				}
+			}
+			else{
+				console.log("null state")
+			}
+		}
+	, [])
+
 	async function getRec(){
 		let str = document.getElementById('dreamText') as HTMLInputElement;
 		if(str?.value != ""){
@@ -13,6 +33,10 @@ const Recommendations = () => {
 				headers: { 'Content-Type': 'application/json' },
 				body: JSON.stringify({ type: 'test', message:str?.value })
 			};
+			let enterDreamDiv = document.getElementById('enterDream')
+			if(enterDreamDiv != null){
+				enterDreamDiv.innerHTML = "waiting..."
+			}
 			const response = await fetch("http://127.0.0.1:5000/flask/hello", requestOptions);
 			console.log(response)
 			const data = await response.json();
