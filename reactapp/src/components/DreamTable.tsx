@@ -34,6 +34,8 @@ function tableRow(dreams: Record<string, string>[], removeFromDatabase: (str: st
 		);
 	} catch (e) {
 		console.error(e);
+		console.log("dream information is as follows:")
+		console.log(JSON.stringify(dreams))
 
 		return (
 			<table>

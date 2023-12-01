@@ -10,6 +10,7 @@ import Auth from '../pages/Auth/Auth';
 import Register from '../pages/Auth/Register';
 import Dreams from '../pages/Dreams';
 import Home from '../pages/Home';
+import Recommendations from '../pages/Recommendations';
 
 export const routes = [
 	{ path: '/', element: <Home /> },
@@ -17,6 +18,7 @@ export const routes = [
 	{ path: '/dreams', element: <Dreams /> },
 	{ path: '/auth', element: <Auth /> },
 	{ path: '/auth/register', element: <Register /> },
+	{ path: '/music', element: <Recommendations />}
 ];
 
 // as={Link} ensures that react router is used
@@ -36,7 +38,7 @@ const Header = () => (
 					<Nav.Link as={NavLink} to="/dreams">
 						Dreams
 					</Nav.Link>
-					<Nav.Link as={NavLink} to="/music" disabled>
+					<Nav.Link as={NavLink} to="/music">
 						Music
 					</Nav.Link>
 					<Nav.Link as={NavLink} to="/connect" disabled>

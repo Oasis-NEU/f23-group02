@@ -7,6 +7,14 @@ installs needed:
 flask
 flask_restful
 flask_cors
+spotipy
+nltk
+sklearn
+
+then, see the following page:
+https://www.nltk.org/data.html
+and instead of nltk.download() with the GUI,
+just run nltk.download("book")
 
 to run:
 cd into root
