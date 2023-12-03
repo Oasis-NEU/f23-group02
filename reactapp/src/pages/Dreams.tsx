@@ -10,7 +10,7 @@ const Dreams = () => {
 	const [groceries, setDreams] = useState<any>({});
 
 	async function addToDreams() {
-		console.log("i was called!!!!")
+		console.log('i was called!!!!');
 
 		let input = document.getElementById('dreamText') as HTMLInputElement;
 		console.log(input?.value);
@@ -39,7 +39,7 @@ const Dreams = () => {
 
 	useEffect(() => {
 		async function fetchDreams() {
-			const { data, error } = await supabase.from('dreams').select('*');
+			const { data, error } = await supabase.from('dreams').select('*').eq('user', localStorage.getItem('user'));
 			if (data) {
 				setDreams(data);
 			} else {
@@ -54,20 +54,26 @@ const Dreams = () => {
 		<div className="Dreams">
 			<Navbar />
 
-			<h2>Enter your dream:</h2>
-			<textarea id="dreamText" placeholder="Last night, I dreamt..." />
-			<br />
-			<br />
-			<button onClick={addToDreams} id="submitButton">
-				submit
-			</button>
-			<br />
-			<br />
-			<h2>Dream List:</h2>
+			{localStorage.getItem('user') ? (
+				<>
+					<h2>Enter your dream:</h2>
+					<textarea id="dreamText" placeholder="Last night, I dreamt..." />
+					<br />
+					<br />
+					<button onClick={addToDreams} id="submitButton">
+						submit
+					</button>
+					<br />
+					<br />
+					<h2>Dream List:</h2>
 
-			<div style={{ padding: '2em' }}>
-				<DreamTable groceries={groceries} removeFromDatabase={removeFromDreams} />
-			</div>
+					<div style={{ padding: '2em' }}>
+						<DreamTable groceries={groceries} removeFromDatabase={removeFromDreams} />
+					</div>
+				</>
+			) : (
+				<h2>Please Login</h2>
+			)}
 		</div>
 	);
 };

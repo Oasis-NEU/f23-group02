@@ -1,14 +1,49 @@
 import { Button, Col, Container, FloatingLabel, Form, Row } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Header from '../../components/Header';
 
 import AuthCard from '../../components/AuthCard';
+import { demoUser } from '../../utils/authentication';
 
 const Auth = () => {
+	const navigate = useNavigate()
+
 	return (
 		<>
 			<Header />
 			<AuthCard>
+				<h3 className="mb-5">Demo</h3>
+				<Container className="d-grid gap-2">
+					<Row>
+						<Col>
+							<Button
+								className="btn-block"
+								variant="primary"
+								size="lg"
+								id="demo-user-1"
+								type="button"
+								onClick={demoUser(1, navigate)}
+							>
+								User 1
+							</Button>
+						</Col>
+						<Col>
+							<Button
+								className="btn-block"
+								variant="primary"
+								size="lg"
+								id="demo-user-2"
+								type="submit"
+								onClick={demoUser(2, navigate)}
+							>
+								User 2
+							</Button>
+						</Col>
+					</Row>
+				</Container>
+
+				<hr className="my-4" />
+
 				<h3 className="mb-5">Login</h3>
 				<FloatingLabel className="mb-4" label="Email">
 					<Form.Control size="lg" type="email" id="login-email" placeholder="" />

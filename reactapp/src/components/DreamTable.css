@@ -38,7 +38,7 @@ button {
 }
 
 .dreamTableData {
-	inline-size: 150px;
+	inline-size: 75%;
 	word-wrap: break-word;
 	overflow-wrap: break-word;
 }

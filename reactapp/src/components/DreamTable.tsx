@@ -1,5 +1,5 @@
+import { Link } from 'react-router-dom';
 import './DreamTable.css';
-import {Link} from 'react-router-dom';
 
 function tableRow(dreams: Record<string, string>[], removeFromDatabase: (str: string) => undefined) {
 	try {
@@ -7,10 +7,9 @@ function tableRow(dreams: Record<string, string>[], removeFromDatabase: (str: st
 			<tr>
 				<td>{timestampNicer(dream.created_at)}</td>
 				<td>
-				<Link 
-					to={'/music'}  
-					state={{text:dream.text}}>Get Music
-				</Link>
+					<Link to={'/music'} state={{ text: dream.text }}>
+						Get Music
+					</Link>
 				</td>
 				<td className="dreamTableData">{dream.text}</td>
 				<td>
@@ -42,12 +41,12 @@ function tableRow(dreams: Record<string, string>[], removeFromDatabase: (str: st
 		);
 	} catch (e) {
 		console.error(e);
-		console.log("dream information is as follows:")
-		console.log(JSON.stringify(dreams))
+		console.log('dream information is as follows:');
+		console.log(JSON.stringify(dreams));
 
 		return (
 			<table>
-				<tr>table no worky :(</tr>
+				<tr>No Dreams Found</tr>
 			</table>
 		);
 	}

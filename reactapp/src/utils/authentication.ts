@@ -1,6 +1,20 @@
-// #region Common
-
+import { NavigateFunction, useNavigate } from 'react-router-dom';
 import { supabase } from '../supabase';
+
+export function demoUser(num:number, navigate: NavigateFunction) {
+	return () => {
+		localStorage.setItem('user', `demo-${num}`);
+		navigate('/');
+	};
+}
+
+
+export function Logout() {
+	localStorage.removeItem('user');
+	useNavigate()('/');
+}
+
+// #region Common
 
 function generateChallenge() {
 	const challenge = new Uint8Array(32);

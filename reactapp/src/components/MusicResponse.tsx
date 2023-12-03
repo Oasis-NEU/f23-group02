@@ -4,7 +4,7 @@ function parseResponse(tracks: Record<string, string>[]) {
 	try {
 		const items = tracks.map((dream) => (
 			<tr>
-				<td>{dream["name"]}</td>
+				<td>{dream['name']}</td>
 			</tr>
 		));
 		return (
@@ -26,7 +26,7 @@ function parseResponse(tracks: Record<string, string>[]) {
 	}
 }
 
-function ResponseTable({ tracks }: { tracks:any }) {
+function ResponseTable({ tracks }: { tracks: any }) {
 	return parseResponse(tracks);
 }
 

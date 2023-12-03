@@ -11,6 +11,7 @@ import Register from '../pages/Auth/Register';
 import Dreams from '../pages/Dreams';
 import Home from '../pages/Home';
 import Recommendations from '../pages/Recommendations';
+import { Logout } from '../utils/authentication';
 
 export const routes = [
 	{ path: '/', element: <Home /> },
@@ -18,7 +19,7 @@ export const routes = [
 	{ path: '/dreams', element: <Dreams /> },
 	{ path: '/auth', element: <Auth /> },
 	{ path: '/auth/register', element: <Register /> },
-	{ path: '/music', element: <Recommendations />}
+	{ path: '/music', element: <Recommendations /> },
 ];
 
 // as={Link} ensures that react router is used
@@ -28,7 +29,7 @@ const Header = () => (
 		<Container className="bg-body-tertiary">
 			<NavbarBrand as={Link} to="/" id="appName">
 				Dream Tracker
-				<img src="/zzz.png" id="zzz"></img>
+				<img src="/zzz.png" id="zzz" alt="zzz" />
 			</NavbarBrand>
 			<Navbar.Collapse id="basic-navbar-nav">
 				<Nav className="me-auto" defaultActiveKey="/">
@@ -46,10 +47,15 @@ const Header = () => (
 					</Nav.Link>
 				</Nav>
 				<Nav>
-					{/* todo: make this reactive etc. */}
-					<Nav.Link as={NavLink} to="/auth">
-						Auth
-					</Nav.Link>
+					{localStorage.getItem('user') ? (
+						<Nav.Link as={NavLink} /* to="/" */ to="" onClick={Logout}>
+							Logout
+						</Nav.Link>
+					) : (
+						<Nav.Link as={NavLink} to="/auth">
+							Auth
+						</Nav.Link>
+					)}
 				</Nav>
 			</Navbar.Collapse>
 		</Container>
