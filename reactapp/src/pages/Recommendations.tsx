@@ -34,19 +34,28 @@ const Recommendations = () => {
 			if (enterDreamDiv != null) {
 				enterDreamDiv.innerHTML = 'waiting...';
 			}
-			const response = await fetch('http://127.0.0.1:5000/flask/hello', requestOptions);
-			console.log(response);
-			const data = await response.json();
-			let responseField = document.getElementById('response');
-			if (responseField != null) {
-				let enterDreamDiv = document.getElementById('enterDream');
-				if (enterDreamDiv != null) {
-					enterDreamDiv.innerHTML = ReactDOMServer.renderToString(
-						<ResponseTable tracks={data['message']['tracks']['items']} />
-					);
-					console.log(JSON.stringify(data['message']));
-					//FUCK string interpolation
+
+			// eslint-disable-next-line no-restricted-globals
+			const url = `http://${location.host.split(':')[0]}:5000/flask/hello`;
+			try {
+				const response = await fetch(url, requestOptions);
+				console.log(response);
+				const data = await response.json();
+				let responseField = document.getElementById('response');
+				if (responseField != null) {
+					let enterDreamDiv = document.getElementById('enterDream');
+					if (enterDreamDiv != null) {
+						enterDreamDiv.innerHTML = ReactDOMServer.renderToString(
+							<ResponseTable tracks={data['message']['tracks']['items']} />
+						);
+						console.log(JSON.stringify(data['message']));
+						//FUCK string interpolation
+					}
 				}
+			} catch (e) {
+				console.log(url);
+				console.error(e);
+				throw e;
 			}
 		}
 	}
