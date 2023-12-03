@@ -15,7 +15,9 @@ const Dreams = () => {
 		let input = document.getElementById('dreamText') as HTMLInputElement;
 		console.log(input?.value);
 		if (input?.value !== '') {
-			const { error } = await supabase.from('dreams').insert({ text: input?.value });
+			const { error } = await supabase
+				.from('dreams')
+				.insert({ text: input?.value, user: localStorage.getItem('user') });
 			if (error) {
 				console.log(error);
 			}

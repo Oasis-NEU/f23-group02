@@ -1,16 +1,24 @@
-import { AnyARecord, AnyRecord } from 'dns';
 import './DreamTable.css';
 
-function spotifyFrame(str:string){
-	return(
-		<iframe style={{borderRadius: '12px'}} src={getEmbedLink(str)} width="100%" height="78" frameBorder="0" allowFullScreen={false} allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-	)
+function spotifyFrame(str: string) {
+	return (
+		<iframe
+			style={{ borderRadius: '12px' }}
+			src={getEmbedLink(str)}
+			width="100%"
+			height="78"
+			frameBorder="0"
+			allowFullScreen={false}
+			allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+			loading="lazy"
+		></iframe>
+	);
 }
 
-function getEmbedLink(str:string){
-	let index = str.indexOf('track')
-	let newString = str.slice(index)
-	return("https://open.spotify.com/embed/" + newString)
+function getEmbedLink(str: string) {
+	let index = str.indexOf('track');
+	let newString = str.slice(index);
+	return 'https://open.spotify.com/embed/' + newString;
 }
 
 function parseResponse(tracks: Record<string, any>[]) {
@@ -19,7 +27,9 @@ function parseResponse(tracks: Record<string, any>[]) {
 			<tr>
 				<td>{dream['name']}</td>
 				<td>{dream['artists'][0]['name']}</td>
-				<td><a href={dream['external_urls']['spotify']}>Spotify Link</a></td>
+				<td>
+					<a href={dream['external_urls']['spotify']}>Spotify Link</a>
+				</td>
 				<td>{spotifyFrame(dream['external_urls']['spotify'])}</td>
 			</tr>
 		));
