@@ -33,7 +33,7 @@ class HelloApiHandler(Resource):
   def get(self):
     return {
       'resultStatus': 'SUCCESS',
-      'message': getSongs("sweet dreams are made of these, who am I to disagree?")
+      'message': getSongs("sweet dreams are made of these, who am I to disagree?")['tracks']['items'][0]
       }
 
   def post(self):
