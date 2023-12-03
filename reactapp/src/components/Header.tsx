@@ -36,15 +36,22 @@ const Header = () => (
 					<Nav.Link as={NavLink} to="/">
 						Home
 					</Nav.Link>
-					<Nav.Link as={NavLink} to="/dreams">
-						Dreams
-					</Nav.Link>
-					<Nav.Link as={NavLink} to="/music">
-						Music
-					</Nav.Link>
-					<Nav.Link as={NavLink} to="/connect" disabled>
-						Connect
-					</Nav.Link>
+					{localStorage.getItem('user') ? (
+						<>
+							<Nav.Link as={NavLink} to="/dreams">
+							Dreams
+							</Nav.Link>
+							<Nav.Link as={NavLink} to="/music">
+								Music
+							</Nav.Link>
+							<Nav.Link as={NavLink} to="/connect" disabled>
+								Connect
+							</Nav.Link>
+						</>
+					) : (
+						<></>
+					)}
+					
 				</Nav>
 				<Nav>
 					{localStorage.getItem('user') ? (
@@ -53,7 +60,7 @@ const Header = () => (
 						</Nav.Link>
 					) : (
 						<Nav.Link as={NavLink} to="/auth">
-							Auth
+							Log In
 						</Nav.Link>
 					)}
 				</Nav>
